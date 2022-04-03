@@ -15,7 +15,6 @@
           label="Tu correo"
           type="email"
           lazy-rules
-          no-error-icon
           :rules="[
             (val) => (val && val.length > 0) || 'Campo obligatorio',
             isValidEmail,
@@ -28,7 +27,6 @@
           type="password"
           label="Tu password"
           lazy-rules
-          no-error-icon
           :rules="[(val) => (val && val.length > 0) || 'Campo obligatorio']"
         />
 
@@ -38,7 +36,6 @@
           type="password"
           label="Repetir password"
           lazy-rules
-          no-error-icon
           :rules="[
             (val) => (val && val.length > 0) || 'Campo obligatorio',
             isSamePassword,
@@ -77,6 +74,7 @@ export default defineComponent({
 
   setup() {
     const $q = useQuasar();
+    $q.iconSet.field.error = "las la-exclamation-triangle";
 
     const userForm = ref({
       email: "",
